@@ -1,0 +1,121 @@
+.rainbow-btn {
+    position: relative;
+    margin-top: 30px;
+    margin-right: 10px;
+    padding: 18px 20px;
+
+    font-size: 20px;
+    font-weight: 600;
+
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+
+    cursor: pointer;
+    overflow: hidden;
+
+    transition: all .35s ease;
+}
+
+/* TEXTO NORMAL */
+
+.rainbow-btn span {
+    position: relative;
+    z-index: 2;
+    transition: all .35s ease;
+}
+
+/* BORDA ARCOIRIS */
+
+.rainbow-btn::before {
+    content: "";
+    position: absolute;
+
+    inset: -1px;
+    border-radius: 8px;
+
+    background: linear-gradient(90deg,
+            cyan,
+            rgb(120, 253, 255),
+            rgb(127, 165, 255),
+            rgb(54, 139, 213),
+            rgb(8, 108, 106),
+            rgb(2, 178, 248),
+            rgb(10, 109, 152),
+            rgb(0, 153, 255));
+
+    opacity: 0;
+    z-index: 1;
+
+    transition: opacity .35s ease;
+}
+
+/* PARTE INTERNA PRETA */
+
+.rainbow-btn::after {
+    content: "";
+    position: absolute;
+
+    inset: 2px;
+    background: rgb(0, 0, 0);
+    border-radius: 8px;
+
+    z-index: 1;
+}
+
+/* HOVER */
+
+.rainbow-btn:hover::before {
+    opacity: 1;
+}
+
+/* TEXTO ARCOIRIS */
+
+.rainbow-btn:hover span {
+
+    background: linear-gradient(90deg,
+            cyan,
+            rgb(120, 253, 255),
+            rgb(127, 165, 255),
+            rgb(54, 139, 213),
+            rgb(8, 108, 106),
+            rgb(2, 178, 248),
+            rgb(10, 109, 152),
+            rgb(0, 153, 255));
+
+    background-size: 300%;
+
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: rainbowMove 3s linear infinite;
+}
+
+/* ANIMAÇÃO */
+
+@keyframes rainbowMove {
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 300%;
+    }
+}
+
+.portbuttom{
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  border: 0;
+  padding: 10px 30px;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+.portbuttom:hover{
+      background: color-mix(in srgb, var(--accent-color), transparent 25%);
+      color: azure;
+}
